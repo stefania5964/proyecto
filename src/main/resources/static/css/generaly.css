@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+body{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+.contenedor__todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+.box_back{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 128, 255, 0.5);
+}
+.box_back div{
+    margin: 100px 40px;
+    color: white;
+    transition: 500ms;
+}
+.box_back div p,.box_back div button{
+    margin-top: 30px;
+}
+.box_back div h3{
+    font-weight: 400;
+    font-size: 26px;
+}
+.box_back div button{
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: 300ms;
+}
+.box_back button:hover{
+    background: #fff;
+    color: #46A2FD;
+}
+.loggin-register{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+}
+.loggin-register form{
+    width: 100%;
+    padding: 80px 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 20px;
+}
+.loggin-register form h1{
+    font-size: 33px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #46A2FD;
+}
+.loggin-register form h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #46A2FD;
+}
+.loggin-register form input{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 15px;
+    outline: none;
+}
+.loggin-register form button{
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #46A2FD;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+.form-log{
+    opacity: 1;
+    display: block;
+}
+.form-reg{
+    display: none;
+}
+@media screen and (max-width: 850px) {
+    main{
+        margin-top: 50px;
+    }
+    .box_back{
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+    .box_back div{
+        margin: 0px;
+        position: absolute;
+    }
+    .loggin-register{
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+    .loggin-register form{
+        position: relative;
+        
+    }
+}
