@@ -17,6 +17,19 @@ public class DrawlearningServices {
     public void addNewUser(User user){
         dp.saveUser(user);
     }
+    public void addNewClue(Clue Clue) throws DrawlearningPersistenceException{
+        dp.saveClue(Clue);
+    }
+    public void addPointToUser(User user){
+        dp.addPointToUser(user);
+    }
+    public String TakeClue(){
+        return dp.TakeClue();
+    }
+
+    public ArrayList<Point> getPointsByUser(String name){
+        return dp.getPointsByUser(name);
+    }
 
     public Set<User> getAllUsers(){
         return dp.getAllUsers();
@@ -38,22 +51,6 @@ public class DrawlearningServices {
     }
 
     public void deleteParticipants(){dp.deleteParticipants();}
-
-    public void addNewClue(Clue Clue) throws DrawlearningPersistenceException{
-        dp.saveClue(Clue);
-    }
-
-    public String TakeClue(){
-        return dp.TakeClue();
-    }
-
-    public ArrayList<Point> getPointsByUser(String name){
-        return dp.getPointsByUser(name);
-    }
-
-    public void addPointToUser(User user){
-        dp.addPointToUser(user);
-    }
 
     public void deleteAllPointsUser(String name){
         dp.deleteAllPointsUser(name);

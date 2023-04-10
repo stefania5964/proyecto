@@ -13,17 +13,23 @@ public class User {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Point> getPoints() {
         return points;
     }
 
+    public boolean isWinner() {
+        return isWinner;
+    }
+
+    public void setWinner(boolean Winner) {
+        isWinner = Winner;
+    }
+
     public void setPoints(ArrayList<Point> points) {
         this.points = points;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void addPoint(Point point){
@@ -34,12 +40,6 @@ public class User {
         this.points.clear();
     }
 
-    public boolean isWinner() {
-        return isWinner;
-    }
 
-    public void setWinner(boolean Winner) {
-        isWinner = Winner;
-    }
 
 }

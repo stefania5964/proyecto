@@ -16,17 +16,6 @@ public class InMemoryDrawlearningPersistence implements DrawlearningPersistence{
 
     public InMemoryDrawlearningPersistence(){
     }
-    @Override
-    public void saveUser(User user) {
-        if(!Participants.containsKey(user.getName())){
-            if(user.getName().contains("Organizer")){
-                OrganizerName = user;
-            }else{
-                Participants.put(user.getName(), user);
-            }
-
-        }
-    }
 
     @Override
     public User getUser(String name) throws DrawlearningPersistenceException{
@@ -52,17 +41,6 @@ public class InMemoryDrawlearningPersistence implements DrawlearningPersistence{
     public ArrayList<Point> getPointsByUser(String name) {
         return Participants.get(name).getPoints();
     }
-
-    @Override
-    public void addPointToUser(User user) {
-        Participants.get(user.getName()).addPoint(user.getPoints().get(0));
-    }
-
-    @Override
-    public void deleteAllPointsUser(String name) {
-        Participants.get(name).deletePoints();
-    }
-
     @Override
     public User getOrganizerName() {
         return OrganizerName;
@@ -82,6 +60,33 @@ public class InMemoryDrawlearningPersistence implements DrawlearningPersistence{
         return Winner;
     }
 
+
+    @Override
+    public void addPointToUser(User user) {
+        Participants.get(user.getName()).addPoint(user.getPoints().get(0));
+    }
+
+    @Override
+    public void deleteAllPointsUser(String name) {
+        Participants.get(name).deletePoints();
+    }
+
+    @Override
+    public void saveUser(User user) {
+        if(!Participants.containsKey(user.getName())){
+            if(user.getName().contains("Organizer")){
+                OrganizerName = user;
+            }else{
+                Participants.put(user.getName(), user);
+            }
+
+        }
+    }
+    @Override
+    public void saveClue(Clue Clue) throws DrawlearningPersistenceException{
+        newClue = new Clue(Clue.getPista(), Clue.getTake());
+    }
+
     @Override
     public void setWinner(String name) {
         Participants.get(name).setWinner(true);
@@ -92,10 +97,6 @@ public class InMemoryDrawlearningPersistence implements DrawlearningPersistence{
         Participants.clear();
     }
 
-    @Override
-    public void saveClue(Clue Clue) throws DrawlearningPersistenceException{
-        newClue = new Clue(Clue.getPista(), Clue.getTake());
-    }
 
     @Override
     public String TakeClue(){
