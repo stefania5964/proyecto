@@ -16,8 +16,13 @@ public class StompMessage {
     @Autowired
     DrawlearningServices dls = null;
 
+    @MessageMapping("/delete.{name}")
+    public synchronized void DeletePointsEvent(@DestinationVariable String name) throws Exception{
+        smt.convertAndSend("/topic/"+name,"delete");
+        dls.deleteAllPointsUser(name);
+    }
     @MessageMapping("/{name}")
-    public synchronized void handlePointEvent(Point point, @DestinationVariable String name) throws Exception{
+    public synchronized void PointEvent(Point point, @DestinationVariable String name) throws Exception{
         smt.convertAndSend("/topic/"+name, point);
         ArrayList<Point> points = new ArrayList<>();
         points.add(point);
@@ -25,9 +30,4 @@ public class StompMessage {
         dls.addPointToUser(user);
     }
 
-    @MessageMapping("/delete.{name}")
-    public synchronized void handleDeletePointsEvent(@DestinationVariable String name) throws Exception{
-        smt.convertAndSend("/topic/"+name,"delete");
-        dls.deleteAllPointsUser(name);
-    }
 }
